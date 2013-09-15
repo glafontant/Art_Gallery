@@ -11,9 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20130915202517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "art_collections", force: true do |t|
+    t.integer  "artwork_id",    null: false
+    t.integer  "collection_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "art_works", force: true do |t|
+    t.integer  "artist_id",     null: false
+    t.date     "creation_date", null: false
+    t.date     "sale_date"
+    t.integer  "price"
+    t.string   "art_genre",     null: false
+    t.boolean  "availability"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "artists", force: true do |t|
+    t.string   "first_name",    null: false
+    t.string   "last_name",     null: false
+    t.string   "email_address"
+    t.string   "birth_place"
+    t.string   "art_style",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collections", force: true do |t|
+    t.string   "genre",      null: false
+    t.integer  "artist_id",  null: false
+    t.integer  "artwork_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customer_collections", force: true do |t|
+    t.integer  "customer_id",   null: false
+    t.integer  "collection_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customers", force: true do |t|
+    t.string   "first_name",    null: false
+    t.string   "last_name",     null: false
+    t.string   "email_address", null: false
+    t.integer  "amount_spent"
+    t.integer  "artwork_id",    null: false
+    t.integer  "collection_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
