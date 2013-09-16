@@ -3,10 +3,8 @@
 FactoryGirl.define do
   factory :customer do
     first_name "MyString"
-    last_name ""
+    last_name "MyString"
     email_address "MyString"
     amount_spent 1
-    artwork_id 1
-    collection_id 1
   end
 end

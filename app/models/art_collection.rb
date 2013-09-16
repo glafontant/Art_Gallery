@@ -1,4 +1,9 @@
 class ArtCollection < ActiveRecord::Base
-  validates_presence_of :artwork_id
-  validates_presence_of :collection_id
+  belongs_to :art_work,
+    inverse_of: :art_collections
+  belongs_to :collection
+
+  
+  validates_presence_of :art_work
+  validates_presence_of :collection
 end

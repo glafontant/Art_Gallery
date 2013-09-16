@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :art_collection do
-    artwork_id 1
+    art_work_id 1
     collection_id 1
   end
 end

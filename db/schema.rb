@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130915202517) do
+ActiveRecord::Schema.define(version: 20130916000903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "art_collections", force: true do |t|
-    t.integer  "artwork_id",    null: false
     t.integer  "collection_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "art_work_id"
   end
 
   create_table "art_works", force: true do |t|
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(version: 20130915202517) do
 
   create_table "collections", force: true do |t|
     t.string   "genre",      null: false
-    t.integer  "artist_id",  null: false
-    t.integer  "artwork_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -64,8 +62,6 @@ ActiveRecord::Schema.define(version: 20130915202517) do
     t.string   "last_name",     null: false
     t.string   "email_address", null: false
     t.integer  "amount_spent"
-    t.integer  "artwork_id",    null: false
-    t.integer  "collection_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
