@@ -3,6 +3,8 @@ require 'spec_helper'
 describe ArtWork do
   monet = FactoryGirl.create(:art_work)
 
+  it { should belong_to(:customer)}
+
   it { should have_valid(:artist_id).when(monet.artist_id)}
   it { should_not have_valid(:artist_id).when(nil, "")}
 

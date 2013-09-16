@@ -5,6 +5,8 @@ class ArtWork < ActiveRecord::Base
   has_many :art_collections,
     inverse_of: :art_work
 
+  belongs_to :customer
+
   validates_presence_of :artist_id
   validates_presence_of :creation_date
   validates_presence_of :art_genre

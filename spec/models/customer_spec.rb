@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Customer do
    monet = FactoryGirl.create(:customer)
 
+  it { should have_many(:art_works)}
+
   it { should have_valid(:first_name).when(monet.first_name)}
   it { should_not have_valid(:first_name).when(nil, "")}
 
